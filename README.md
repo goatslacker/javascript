@@ -3491,4 +3491,46 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 We encourage you to fork this guide and change the rules to fit your team’s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.
 
-# };
+  - [20.1](#20.1) <a name='20.1'></a> **No semicolons. Use the ASI.**
+
+    ```javascript
+    // good
+    (function() {
+      const name = 'Skywalker'
+      return name
+    })()
+
+    // meh
+    (() => {
+      const name = 'Skywalker';
+      return name;
+    })();
+
+    // ok too, but never do this, give the function a name instead
+    ;(() => {
+      const name = 'Skywalker'
+      return name
+    })()
+
+    // no, why would you ever start a line with an array. Give it a name
+    [1, 2, 3].map(addOne)
+
+    // starting a line with an arithmetic operator is also weird
+    +1
+
+    // yes you need semicolons for for stmts, but don't for-loop unless
+    // there's a valid reason for it
+    for (let i = 0; i < iterations.length; i += 1) {
+    }
+    ```
+
+    Semicolons are entirely avoidable, in some cases you might need one. Use
+    judiciously.
+
+    [Read more](https://medium.com/@goatslacker/no-you-dont-need-semicolons-148d936b9cf2).
+
+**[⬆ back to top](#table-of-contents)**
+
+
+
+# }
